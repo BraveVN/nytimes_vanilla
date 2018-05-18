@@ -71,8 +71,7 @@
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
-    "test:auto": "gulp test:auto",
-    "postinstall": "gulp"
+    "test:auto": "gulp test:auto"
   },
   "eslintConfig": {
     "root": true,
