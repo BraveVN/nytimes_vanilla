@@ -1,0 +1,12 @@
+{
+  "name": "NY Times Clone",
+  "description": "This app does cool things.",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm install"
+  }
+}
