@@ -6,13 +6,13 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var browserHistory = require('react-router').browserHistory;
 
-var Main = require('./app/main');
+var Home = require('./app/components/Home/home');
 
 require('./index.scss');
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={Main}/>
+    <Route path="/" component={Home}/>
   </Router>,
   document.getElementById('root')
 );

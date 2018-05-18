@@ -31,12 +31,8 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div style={styles.title}>
-        <h1 style={styles.h1}>&apos;Allo, &apos;Allo!</h1>
-        <div>
-          <img style={styles.logo} src="http://fountainjs.io/assets/imgs/yeoman.png"/>
-          <img style={styles.logo} src="http://fountainjs.io/assets/imgs/fountain.png"/>
-        </div>
-        <h2 style={styles.h2}>Always a pleasure scaffolding your apps.</h2>
+        <h1 style={styles.h1}>Hello New York!</h1>
+        <h2 style={styles.h2}>Always a pleasure to serve latest news.</h2>
       </div>
     );
   }

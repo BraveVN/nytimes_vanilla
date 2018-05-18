@@ -29,12 +29,11 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div style={styles.tech}>
-        <img style={styles.logo} src={this.props.tech.logo}/>
         <h3 style={styles.h3}>
-          {this.props.tech.title}
+          {this.props.tech}
         </h3>
-        <p>{this.props.tech.text1}</p>
-        <p>{this.props.tech.text2}</p>
+        {/* <p>{this.props.tech.text1}</p> */}
+        {/* <p>{this.props.tech.text2}</p> */}
       </div>
     );
   }

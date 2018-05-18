@@ -1,7 +1,7 @@
 var React = require('react');
 var Header = require('./header');
 var Title = require('./title');
-var Techs = require('./techs/techs');
+var Techs = require('../Categories/categories');
 var Footer = require('./footer');
 
 var styles = {
@@ -22,10 +22,12 @@ module.exports = React.createClass({
     return (
       <div style={styles.container}>
         <Header/>
+
         <main style={styles.main}>
           <Title/>
           <Techs/>
         </main>
+
         <Footer/>
       </div>
     );
