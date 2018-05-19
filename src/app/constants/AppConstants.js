@@ -1,7 +1,0 @@
-var AppConstants = {
-  CHANGE_EVENT: 'CHANGE_EVENT',
-  RECIEVE_ARTICLES: 'RECIEVE_ARTICLES',
-  RECIEVE_ARTICLES_ERROR: 'RECIEVE_ARTICLES_ERROR'
-};
-
-module.exports = AppConstants;

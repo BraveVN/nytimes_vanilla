@@ -1,8 +1,8 @@
 require('./articles.scss');
 var React = require('react');
 var Article = require('./article');
-var ArticlesActions = require('../../../actions/ArticlesActions');
-var ArticlesStore = require('../../../stores/ArticlesStore');
+var articlesActions = require('../../../actions/articlesActions');
+var articlesStore = require('../../../stores/articlesStore');
 
 class Articles extends React.Component {
   constructor(props) {
@@ -16,20 +16,20 @@ class Articles extends React.Component {
   }
 
   componentWillMount() {
-    ArticlesStore.addChangeListener(this.onChange);
+    articlesStore.addChangeListener(this.onChange);
   }
 
   componentDidMount() {
-    ArticlesActions.receiveArticles();
+    articlesActions.receiveArticles();
   }
 
   componentWillUnmount() {
-    ArticlesStore.removeChangeListener(this.onChange);
+    articlesStore.removeChangeListener(this.onChange);
   }
 
   onChange() {
     this.setState({
-      articles: ArticlesStore.getArticles()
+      articles: articlesStore.getArticles()
     });
   }
 

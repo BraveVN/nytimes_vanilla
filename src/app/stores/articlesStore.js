@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var AppConstants = require('../constants/AppConstants');
+var appDispatcher = require('../dispatcher/appDispatcher');
+var appConstants = require('../constants/appConstants');
 var EventEmitter = require('events');
 
 let _articles = [];
@@ -10,15 +10,15 @@ function setArticles(articles) {
 
 class ArticlesStoreClass extends EventEmitter {
   emitChange() {
-    this.emit(AppConstants.CHANGE_EVENT);
+    this.emit(appConstants.CHANGE_EVENT);
   }
 
   addChangeListener(callback) {
-    this.on(AppConstants.CHANGE_EVENT, callback);
+    this.on(appConstants.CHANGE_EVENT, callback);
   }
 
   removeChangeListener(callback) {
-    this.removeListener(AppConstants.CHANGE_EVENT, callback);
+    this.removeListener(appConstants.CHANGE_EVENT, callback);
   }
 
   getArticles() {
@@ -28,12 +28,12 @@ class ArticlesStoreClass extends EventEmitter {
 
 const ArticlesStore = new ArticlesStoreClass();
 
-ArticlesStore.dispatchToken = AppDispatcher.register(action => {
+ArticlesStore.dispatchToken = appDispatcher.register(action => {
   switch (action.actionType) {
-    case AppConstants.RECIEVE_ARTICLES:
+    case appConstants.RECIEVE_ARTICLES:
       setArticles(action.value);
       break;
-    case AppConstants.RECIEVE_ARTICLES_ERROR:
+    case appConstants.RECIEVE_ARTICLES_ERROR:
       // Handle data error
       break;
     default:
