@@ -1,7 +1,8 @@
 require('./books.scss');
 var React = require('react');
 var Book = require('./book');
-var axios = require('../../../services/axios');
+var booksActions = require('../../../actions/booksActions');
+var booksStore = require('../../../stores/booksStore');
 
 class Books extends React.Component {
   constructor(props) {
@@ -10,15 +11,25 @@ class Books extends React.Component {
     this.state = {
       books: []
     };
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    booksStore.addChangeListener(this.onChange);
   }
 
   componentDidMount() {
-    this.bestSeller();
+    booksActions.receiveBooks();
   }
 
-  bestSeller() {
-    axios.Books.bestSeller().then(res => {
-      this.setState({books: res.results});
+  componentWillUnmount() {
+    booksStore.removeChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.setState({
+      books: booksStore.getBooks()
     });
   }
 
