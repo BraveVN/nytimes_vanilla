@@ -14,7 +14,7 @@ class Story extends React.Component {
 
     this.state = {
       show: false,
-      story: props.story,
+      story: props.story
     };
   }
 
@@ -70,8 +70,13 @@ class Story extends React.Component {
                     <div key={index}>
                       <img src={media.url}/>
                     </div>
-                  )
+                  );
                 }
+                return (
+                  <div key={index}>
+                    <i>No Media</i>
+                  </div>
+                );
               })
             }
           </Modal.Body>

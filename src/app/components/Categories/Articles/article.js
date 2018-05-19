@@ -14,7 +14,7 @@ class Article extends React.Component {
 
     this.state = {
       show: false,
-      article: props.article,
+      article: props.article
     };
   }
 
@@ -68,8 +68,13 @@ class Article extends React.Component {
                     <div key={index}>
                       <img src={this.getMediaUrl(media.url)}/>
                     </div>
-                  )
+                  );
                 }
+                return (
+                  <div key={index}>
+                    <i>No media</i>
+                  </div>
+                );
               })
             }
             <i>{this.getPublicDate(this.state.article.pub_date)} - {this.state.article.source}</i>

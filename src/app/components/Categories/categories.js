@@ -9,10 +9,10 @@ class Categories extends React.Component {
   render() {
     return (
       <div>
-        <Articles />
-        <Books />
-        <MovieReviews />
-        <TopStories />
+        <Articles/>
+        <Books/>
+        <MovieReviews/>
+        <TopStories/>
       </div>
     );
   }

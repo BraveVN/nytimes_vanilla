@@ -14,7 +14,7 @@ class Review extends React.Component {
 
     this.state = {
       show: false,
-      review: props.review,
+      review: props.review
     };
   }
 

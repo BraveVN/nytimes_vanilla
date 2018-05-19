@@ -7,9 +7,9 @@ const responseBody = res => res.data;
 
 const requests = {
   get: (url, params) => {
-    params = params ? params : {}
+    params = params ? params : {};
     params['api-key'] = API_KEY;
-    return axios.get(`${API_ROOT}${url}`, {params: params}).then(responseBody)
+    return axios.get(`${API_ROOT}${url}`, {params: params}).then(responseBody);
   }
 };
 
@@ -25,17 +25,17 @@ const ArticlesSearch = {
 const Books = {
   bestSeller: () =>
     requests.get('books/v3/lists/best-sellers/history.json')
-}
+};
 
 const MovieReviews = {
   all: () =>
-    requests.get('movies/v2/reviews/all.json', {'offset': 20})
-}
+    requests.get('movies/v2/reviews/all.json', {offset: 20})
+};
 
 const TopStories = {
   arts: () =>
     requests.get('topstories/v2/arts.json')
-}
+};
 
 module.exports = {
   ArticlesSearch,

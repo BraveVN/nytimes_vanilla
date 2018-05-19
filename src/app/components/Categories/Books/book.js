@@ -14,7 +14,7 @@ class Book extends React.Component {
 
     this.state = {
       show: false,
-      book: props.book,
+      book: props.book
     };
   }
 
