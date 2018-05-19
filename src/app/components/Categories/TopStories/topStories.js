@@ -1,7 +1,8 @@
 require('./topStories.scss');
 var React = require('react');
 var Story = require('./story');
-var axios = require('../../../services/axios');
+var topStoriesActions = require('../../../actions/topStoriesActions');
+var topStoriesStore = require('../../../stores/topStoriesStore');
 
 class TopStories extends React.Component {
   constructor(props) {
@@ -10,15 +11,25 @@ class TopStories extends React.Component {
     this.state = {
       topStories: []
     };
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    topStoriesStore.addChangeListener(this.onChange);
   }
 
   componentDidMount() {
-    this.topStoriesArtsList();
+    topStoriesActions.receiveStories();
   }
 
-  topStoriesArtsList() {
-    axios.TopStories.arts().then(res => {
-      this.setState({topStories: res.results});
+  componentWillUnmount() {
+    topStoriesStore.removeChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.setState({
+      topStories: topStoriesStore.getStories()
     });
   }
 
