@@ -15,26 +15,37 @@ var styles = {
     float: 'right',
     margin: '0 0 .5rem .5rem'
   },
-  h3: {
-    fontSize: '1.5rem',
-    margin: '0 0 2rem 0'
+  link: {
+    color: '#000'
   }
 };
 
-module.exports = React.createClass({
-  propTypes: {
-    tech: React.PropTypes.object.isRequired
-  },
+module.exports = class extends React.Component {
+  constructor(props) {
+    super(props);
 
-  render: function () {
+    this.state = {
+      category: props.category
+    };
+  }
+
+  static get propTypes() {
+    return {
+      category: React.PropTypes.object.isRequired
+    };
+  }
+
+  render() {
     return (
       <div style={styles.tech}>
-        <h3 style={styles.h3}>
-          {this.props.tech}
-        </h3>
+        <a style={styles.link} href={this.state.category.web_url} target="_blank" rel="noopener noreferrer">
+          <h3>
+            {this.state.category.headline.main}
+          </h3>
+        </a>
         {/* <p>{this.props.tech.text1}</p> */}
         {/* <p>{this.props.tech.text2}</p> */}
       </div>
     );
   }
-});
+};
