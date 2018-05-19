@@ -8,13 +8,13 @@ var ArticlesActions = {
       .all()
       .then(res => {
         appDispatcher.dispatch({
-          actionType: appConstants.RECIEVE_ARTICLES,
+          actionType: appConstants.RECEIVE_ARTICLES,
           value: res.response.docs
         });
       })
       .catch(message => {
         appDispatcher.dispatch({
-          actionType: appConstants.RECIEVE_ARTICLES_ERROR,
+          actionType: appConstants.RECEIVE_ARTICLES_ERROR,
           value: message
         });
       });

@@ -30,10 +30,10 @@ const BooksStore = new BooksStoreClass();
 
 BooksStore.dispatchToken = appDispatcher.register(action => {
   switch (action.actionType) {
-    case appConstants.RECIEVE_BOOKS:
+    case appConstants.RECEIVE_BOOKS:
       setBooks(action.value);
       break;
-    case appConstants.RECIEVE_BOOKS_ERROR:
+    case appConstants.RECEIVE_BOOKS_ERROR:
       // Handle data error
       break;
     default:

@@ -8,13 +8,13 @@ var BooksActions = {
       .bestSeller()
       .then(res => {
         appDispatcher.dispatch({
-          actionType: appConstants.RECIEVE_BOOKS,
+          actionType: appConstants.RECEIVE_BOOKS,
           value: res.results
         });
       })
       .catch(message => {
         appDispatcher.dispatch({
-          actionType: appConstants.RECIEVE_BOOKS_ERROR,
+          actionType: appConstants.RECEIVE_BOOKS_ERROR,
           value: message
         });
       });

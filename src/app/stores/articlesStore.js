@@ -30,10 +30,10 @@ const ArticlesStore = new ArticlesStoreClass();
 
 ArticlesStore.dispatchToken = appDispatcher.register(action => {
   switch (action.actionType) {
-    case appConstants.RECIEVE_ARTICLES:
+    case appConstants.RECEIVE_ARTICLES:
       setArticles(action.value);
       break;
-    case appConstants.RECIEVE_ARTICLES_ERROR:
+    case appConstants.RECEIVE_ARTICLES_ERROR:
       // Handle data error
       break;
     default:
