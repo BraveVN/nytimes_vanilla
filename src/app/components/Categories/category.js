@@ -1,31 +1,20 @@
+require('./category.scss');
+var ReactBootstrap = require('react-bootstrap');
+var Button = ReactBootstrap.Button;
+var Modal = ReactBootstrap.Modal;
 var React = require('react');
-
-var styles = {
-  tech: {
-    height: '15rem',
-    width: '15rem',
-    border: '1px solid lightgray',
-    borderRadius: '1rem',
-    margin: '1rem',
-    padding: '1rem'
-  },
-  logo: {
-    width: '5rem',
-    height: '5rem',
-    float: 'right',
-    margin: '0 0 .5rem .5rem'
-  },
-  link: {
-    color: '#000'
-  }
-};
 
 module.exports = class extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
     this.state = {
-      category: props.category
+      show: false,
+      category: props.category,
+      publicDate: this.getPublicDate
     };
   }
 
@@ -35,16 +24,46 @@ module.exports = class extends React.Component {
     };
   }
 
+  getPublicDate(dateString) {
+    var date = new Date(dateString);
+    return date.toDateString();
+  }
+
+  handleClose() {
+    this.setState({show: false});
+  }
+
+  handleShow() {
+    this.setState({show: true});
+  }
+
   render() {
     return (
-      <div style={styles.tech}>
-        <a style={styles.link} href={this.state.category.web_url} target="_blank" rel="noopener noreferrer">
+      <div className="category">
+        <a href={this.state.category.web_url} target="_blank" rel="noopener noreferrer">
           <h3>
             {this.state.category.headline.main}
           </h3>
         </a>
-        {/* <p>{this.props.tech.text1}</p> */}
-        {/* <p>{this.props.tech.text2}</p> */}
+        <p>{this.state.publicDate(this.state.category.pub_date)}</p>
+
+        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
+          Detail
+        </Button>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{this.state.category.headline.main}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Snippet: {this.state.category.snippet}</h4>
+            <h4>Public date: {this.state.publicDate(this.state.category.pub_date)}</h4>
+            <h4>Source: {this.state.category.source}</h4>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

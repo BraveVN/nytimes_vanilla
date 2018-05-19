@@ -1,0 +1,14 @@
+.categories-container {
+  width: 100%;
+  margin: 1em;
+  .title {
+    font-weight: 400;
+    font-size: 2em;
+  }
+  .categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

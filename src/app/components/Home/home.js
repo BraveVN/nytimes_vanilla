@@ -1,31 +1,19 @@
+require('./home.scss');
 var React = require('react');
 var Header = require('./header');
 var Title = require('./title');
-var Techs = require('../Categories/categories');
+var Content = require('../Content/content');
 var Footer = require('./footer');
-
-var styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100%'
-  },
-  main: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column'
-  }
-};
 
 class Home extends React.Component {
   render() {
     return (
-      <div style={styles.container}>
+      <div className="container">
         <Header/>
 
-        <main style={styles.main}>
+        <main className="home">
           <Title/>
-          <Techs/>
+          <Content/>
         </main>
 
         <Footer/>

@@ -18,7 +18,7 @@ class Header extends React.Component {
     return (
       <header style={styles.header}>
         <p style={styles.title}>
-          <a href="#">Something went wrong</a>
+          <a href="#">Something went wrong (really ?)</a>
         </p>
       </header>
     );
