@@ -1,7 +1,8 @@
 require('./movieReviews.scss');
 var React = require('react');
 var Review = require('./review');
-var axios = require('../../../services/axios');
+var movieReviewsActions = require('../../../actions/movieReviewsActions');
+var movieReviewsStore = require('../../../stores/movieReviewsStore');
 
 class MovieReviews extends React.Component {
   constructor(props) {
@@ -10,15 +11,25 @@ class MovieReviews extends React.Component {
     this.state = {
       reviews: []
     };
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    movieReviewsStore.addChangeListener(this.onChange);
   }
 
   componentDidMount() {
-    this.getMovieReviews();
+    movieReviewsActions.receiveReviews();
   }
 
-  getMovieReviews() {
-    axios.MovieReviews.all().then(res => {
-      this.setState({reviews: res.results});
+  componentWillUnmount() {
+    movieReviewsStore.removeChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.setState({
+      reviews: movieReviewsStore.getReviews()
     });
   }
 
