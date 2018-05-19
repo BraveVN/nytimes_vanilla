@@ -35,12 +35,17 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     .post {
-      height: 15rem;
       width: 18rem;
       border: 1px solid lightgray;
       border-radius: 3px;
       margin: 0.5rem;
       padding: 1rem;
     }
+  }
+}
+
+.modal-body {
+  img {
+    width: 100%;
   }
 }
