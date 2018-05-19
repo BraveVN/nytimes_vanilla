@@ -17,8 +17,8 @@ var styles = {
   }
 };
 
-module.exports = React.createClass({
-  render: function () {
+class Home extends React.Component {
+  render() {
     return (
       <div style={styles.container}>
         <Header/>
@@ -32,4 +32,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+module.exports = Home;

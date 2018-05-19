@@ -13,8 +13,8 @@ var styles = {
   }
 };
 
-module.exports = React.createClass({
-  render: function () {
+class Header extends React.Component {
+  render() {
     return (
       <header style={styles.header}>
         <p style={styles.title}>
@@ -23,4 +23,6 @@ module.exports = React.createClass({
       </header>
     );
   }
-});
+}
+
+module.exports = Header;

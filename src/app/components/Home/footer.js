@@ -10,8 +10,8 @@ var styles = {
   }
 };
 
-module.exports = React.createClass({
-  render: function () {
+class Footer extends React.Component {
+  render() {
     return (
       <footer style={styles.footer}>
         Build with ♥ by the&nbsp;
@@ -21,4 +21,6 @@ module.exports = React.createClass({
       </footer>
     );
   }
-});
+}
+
+module.exports = Footer;

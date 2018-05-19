@@ -27,8 +27,8 @@ var styles = {
   }
 };
 
-module.exports = React.createClass({
-  render: function () {
+class Title extends React.Component {
+  render() {
     return (
       <div style={styles.title}>
         <h1 style={styles.h1}>Hello New York!</h1>
@@ -36,4 +36,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+module.exports = Title;
