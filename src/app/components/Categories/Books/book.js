@@ -1,11 +1,11 @@
 var React = require('react');
-require('./article.scss');
+require('./book.scss');
 var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
 var CommonService = require('../../../commonServices');
 
-class Article extends React.Component {
+class Book extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,13 +14,13 @@ class Article extends React.Component {
 
     this.state = {
       show: false,
-      article: props.article,
+      book: props.book,
     };
   }
 
   static get propTypes() {
     return {
-      article: React.PropTypes.object.isRequired
+      book: React.PropTypes.object.isRequired
     };
   }
 
@@ -44,12 +44,12 @@ class Article extends React.Component {
   render() {
     return (
       <div className="post">
-        <a href={this.state.article.web_url} target="_blank" rel="noopener noreferrer">
+        <a href={this.state.book.web_url} target="_blank" rel="noopener noreferrer">
           <h3>
-            {this.state.article.headline.main}
+            {this.state.book.title}
           </h3>
         </a>
-        <p>{this.getPublicDate(this.state.article.pub_date)}</p>
+        <p>{this.state.book.description}</p>
 
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
           Detail
@@ -57,22 +57,13 @@ class Article extends React.Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>{this.state.article.headline.main}</Modal.Title>
+            <Modal.Title>{this.state.book.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>{this.state.article.snippet}</h4>
-            {
-              this.state.article.multimedia.map((media, index) => {
-                if (media.subtype === 'xlarge') {
-                  return (
-                    <div key={index}>
-                      <img src={this.getMediaUrl(media.url)}/>
-                    </div>
-                  )
-                }
-              })
-            }
-            <i>{this.getPublicDate(this.state.article.pub_date)} - {this.state.article.source}</i>
+            <h4>{this.state.book.description}</h4>
+            <p>${this.state.book.price}</p>
+            <p>{this.state.book.contributor}</p>
+            <p>{this.state.book.publisher}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
@@ -83,4 +74,4 @@ class Article extends React.Component {
   }
 }
 
-module.exports = Article;
+module.exports = Book;

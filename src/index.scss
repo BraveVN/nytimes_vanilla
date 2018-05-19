@@ -1,17 +1,21 @@
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   height: 100%;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
 }
 
-body, h1, h2, h3 {
+body,
+h1,
+h2,
+h3 {
   font-weight: 300
 }
 
 a {
   text-decoration: none;
-
   &:hover {
     color: #5aadbb;
     cursor: pointer;
@@ -30,5 +34,13 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    .post {
+      height: 15rem;
+      width: 18rem;
+      border: 1px solid lightgray;
+      border-radius: 3px;
+      margin: 0.5rem;
+      padding: 1rem;
+    }
   }
 }
