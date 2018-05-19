@@ -6,7 +6,6 @@ class Sidebar extends React.Component {
     const categoriesTitle = [
       'Articles',
       'Books',
-      'Most popular',
       'Movie reviews',
       'Top stories'
     ];

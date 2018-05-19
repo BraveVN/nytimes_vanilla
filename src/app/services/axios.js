@@ -27,11 +27,6 @@ const Books = {
     requests.get('books/v3/lists/best-sellers/history.json')
 }
 
-const MostPopular = {
-  technology: () =>
-    requests.get('mostpopular/v2/mostviewed/Technology/1.json')
-}
-
 const MovieReviews = {
   all: () =>
     requests.get('movies/v2/reviews/all.json', {'offset': 20})
@@ -45,7 +40,6 @@ const TopStories = {
 module.exports = {
   ArticlesSearch,
   Books,
-  MostPopular,
   MovieReviews,
   TopStories
 };
