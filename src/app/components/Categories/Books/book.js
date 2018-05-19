@@ -44,11 +44,9 @@ class Book extends React.Component {
   render() {
     return (
       <div className="post">
-        <a href={this.state.book.web_url} target="_blank" rel="noopener noreferrer">
-          <h3>
-            {this.state.book.title}
-          </h3>
-        </a>
+        <h3>
+          {this.state.book.title}
+        </h3>
         <p>{this.state.book.description}</p>
 
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
