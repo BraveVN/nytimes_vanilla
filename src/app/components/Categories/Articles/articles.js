@@ -1,7 +1,7 @@
 require('./articles.scss');
 var React = require('react');
 var Article = require('./article');
-var axiosServices = require('../../../axiosServices');
+var axios = require('../../../services/axios');
 
 class Articles extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Articles extends React.Component {
   }
 
   articlesList() {
-    axiosServices.ArticlesSearch.all().then(res => {
+    axios.ArticlesSearch.all().then(res => {
       this.setState({articles: res.response.docs});
     });
   }

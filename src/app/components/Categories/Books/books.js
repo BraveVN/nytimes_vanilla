@@ -1,7 +1,7 @@
 require('./books.scss');
 var React = require('react');
 var Book = require('./book');
-var axiosServices = require('../../../axiosServices');
+var axios = require('../../../services/axios');
 
 class Books extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Books extends React.Component {
   }
 
   bestSeller() {
-    axiosServices.Books.bestSeller().then(res => {
+    axios.Books.bestSeller().then(res => {
       this.setState({books: res.results});
     });
   }

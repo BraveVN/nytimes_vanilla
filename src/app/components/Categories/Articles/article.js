@@ -3,7 +3,7 @@ require('./article.scss');
 var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
-var CommonService = require('../../../commonServices');
+var common = require('../../../services/common');
 
 class Article extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Article extends React.Component {
   }
 
   getMediaUrl(url) {
-    return CommonService.domain + url;
+    return common.domain + url;
   }
 
   handleClose() {
