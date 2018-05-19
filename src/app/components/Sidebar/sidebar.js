@@ -4,7 +4,6 @@ require('./sidebar.scss');
 class Sidebar extends React.Component {
   render() {
     const categoriesTitle = [
-      'Archive',
       'Articles',
       'Books',
       'Most popular',

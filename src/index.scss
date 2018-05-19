@@ -17,3 +17,18 @@ a {
     cursor: pointer;
   }
 }
+
+.category-container {
+  width: 100%;
+  margin: 1em;
+  .title {
+    font-weight: 400;
+    font-size: 2em;
+  }
+  .category-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
