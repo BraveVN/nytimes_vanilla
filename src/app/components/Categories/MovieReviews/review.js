@@ -3,7 +3,6 @@ require('./review.scss');
 var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
-var common = require('../../../services/common');
 
 class Review extends React.Component {
   constructor(props) {
