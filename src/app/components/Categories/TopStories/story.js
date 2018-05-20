@@ -3,7 +3,6 @@ require('./story.scss');
 var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
-var common = require('../../../services/common');
 
 class Story extends React.Component {
   constructor(props) {
@@ -26,11 +25,17 @@ class Story extends React.Component {
 
   getDate(dateString) {
     var date = new Date(dateString);
-    return date.toDateString();
+    return date.toLocaleDateString();
   }
 
-  getMediaUrl(url) {
-    return common.domain + url;
+  getMediaUrl() {
+    for (let i = 0; i < this.state.story.multimedia.length; i++) {
+      const media = this.state.story.multimedia[i];
+      if (media.format === 'superJumbo') {
+        return <img src={media.url}/>;
+      }
+    }
+    return <i>No media</i>;
   }
 
   handleClose() {
@@ -43,42 +48,25 @@ class Story extends React.Component {
 
   render() {
     return (
-      <div className="post">
-        <a href={this.state.story.url} target="_blank" rel="noopener noreferrer">
-          <h3>
-            {this.state.story.title}
-          </h3>
-        </a>
-        <p>{this.getDate(this.state.story.published_date)}</p>
-
-        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-          Detail
-        </Button>
+      <div className="post" onClick={this.handleShow}>
+        <h4>
+          {this.state.story.title}
+        </h4>
+        <p className="date">Published: {this.getDate(this.state.story.published_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.state.story.title}</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>{this.state.story.title} - <span className="italic-text">by {this.state.story.byline}</span></Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <i>{this.state.story.byline}</i>
-            <p>{this.getDate(this.state.story.published_date)}</p>
+            <p className="italic-text">
+              {this.getDate(this.state.story.published_date)}
+            </p>
             <p>{this.state.story.abstract}</p>
-            {
-              this.state.story.multimedia.map((media, index) => {
-                if (media.format === 'superJumbo') {
-                  return (
-                    <div key={index}>
-                      <img src={media.url}/>
-                    </div>
-                  );
-                }
-                return (
-                  <div key={index}>
-                    <i>No Media</i>
-                  </div>
-                );
-              })
-            }
+            <p className="italic-text">
+              Read it on <a href={this.state.story.url} target="_blank" rel="noopener noreferrer">The New York Times</a>
+            </p>
+            <div className="media">{this.getMediaUrl()}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>

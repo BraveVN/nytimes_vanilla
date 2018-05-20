@@ -1,0 +1,30 @@
+.home-titles {
+  color: white;
+  padding: 1em;
+  height: 50vh;
+  background-image: url(https://scontent.fsgn5-6.fna.fbcdn.net/v/t31.0-8/28827423_10211154539048744_1479952685383928747_o.jpg?_nc_cat=0&_nc_eui2=AeHHdUiLqi70vj2FlNKGCA-FcXL2Sk2K2xwlDKAB_57vSyysXDnAe4gcAGOMUweh0e36deQqjX9OvPAqfekrBX7INqUUzr4zKA_VMGkrYxArlg&oh=c6262a892c401014cbf0fbcf9e3aa450&oe=5B913F04);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  .primary-title {
+    font-size: 4em;
+    margin-top: 15vh;
+  }
+  .slogan {
+    font-size: 2em;
+    margin: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home-titles {
+    .primary-title {
+      font-size: 3em;
+      margin-top: 10vh;
+    }
+    .slogan {
+      font-size: 1.5em;
+      margin: 0.5em;
+    }
+  }
+}

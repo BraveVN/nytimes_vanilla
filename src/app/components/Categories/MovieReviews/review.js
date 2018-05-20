@@ -26,7 +26,7 @@ class Review extends React.Component {
 
   getDate(dateString) {
     var date = new Date(dateString);
-    return date.toDateString();
+    return date.toLocaleDateString();
   }
 
   getMediaUrl(url) {
@@ -43,25 +43,24 @@ class Review extends React.Component {
 
   render() {
     return (
-      <div className="post">
-        <a href={this.state.review.link.url}>
-          <h3>
-            {this.state.review.headline}
-          </h3>
-        </a>
-
-        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-          Detail
-        </Button>
+      <div className="post" onClick={this.handleShow}>
+        <h4>
+          {this.state.review.headline}
+        </h4>
+        <p className="date">Published: {this.getDate(this.state.review.publication_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.state.review.headline}</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>{this.state.review.headline} - <span className="italic-text">by {this.state.review.byline}</span></Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <p>By {this.state.review.byline}</p>
-            <i>{this.getDate(this.state.review.publication_date)}</i>
+            <p className="italic-text">
+              {this.getDate(this.state.review.publication_date)}
+            </p>
             <h4>{this.state.review.summary_short}</h4>
+            <p className="italic-text">
+              Read it on <a href={this.state.review.link.url} target="_blank" rel="noopener noreferrer">The New York Times</a>
+            </p>
             <img src={this.state.review.multimedia.src}/>
           </Modal.Body>
           <Modal.Footer>

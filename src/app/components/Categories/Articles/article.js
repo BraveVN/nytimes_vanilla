@@ -26,11 +26,17 @@ class Article extends React.Component {
 
   getPublicDate(dateString) {
     var date = new Date(dateString);
-    return date.toDateString();
+    return date.toLocaleDateString();
   }
 
-  getMediaUrl(url) {
-    return common.domain + url;
+  getMediaUrl() {
+    for (let i = 0; i < this.state.article.multimedia.length; i++) {
+      const media = this.state.article.multimedia[i];
+      if (media.subtype === 'xlarge') {
+        return <img src={common.domain + media.url}/>;
+      }
+    }
+    return <i>No media</i>;
   }
 
   handleClose() {
@@ -43,41 +49,29 @@ class Article extends React.Component {
 
   render() {
     return (
-      <div className="post">
-        <a href={this.state.article.web_url} target="_blank" rel="noopener noreferrer">
-          <h3>
-            {this.state.article.headline.main}
-          </h3>
-        </a>
-        <p>{this.getPublicDate(this.state.article.pub_date)}</p>
-
-        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-          Detail
-        </Button>
+      <div className="post" onClick={this.handleShow}>
+        <h4>
+          {this.state.article.headline.main}
+        </h4>
+        <p className="date">Published: {this.getPublicDate(this.state.article.pub_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.state.article.headline.main}</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>
+              {this.state.article.headline.main}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>{this.state.article.snippet}</h4>
-            {
-              this.state.article.multimedia.map((media, index) => {
-                if (media.subtype === 'xlarge') {
-                  return (
-                    <div key={index}>
-                      <img src={this.getMediaUrl(media.url)}/>
-                    </div>
-                  );
-                }
-                return (
-                  <div key={index}>
-                    <i>No media</i>
-                  </div>
-                );
-              })
-            }
-            <i>{this.getPublicDate(this.state.article.pub_date)} - {this.state.article.source}</i>
+            <p className="italic-text">
+              {this.getPublicDate(this.state.article.pub_date)}
+            </p>
+            <h4>
+              {this.state.article.snippet}
+            </h4>
+            <p className="italic-text">
+              Read it on <a href={this.state.article.web_url} target="_blank" rel="noopener noreferrer">{this.state.article.source}</a>
+            </p>
+            <div className="media">{this.getMediaUrl()}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>

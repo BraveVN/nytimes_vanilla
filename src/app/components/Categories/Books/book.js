@@ -41,27 +41,29 @@ class Book extends React.Component {
     this.setState({show: true});
   }
 
+  handleShowDescription() {
+    if (this.state.book.description) {
+      return <h4>{this.state.book.description}</h4>;
+    }
+    return <h4><i>No description</i></h4>;
+  }
+
   render() {
     return (
-      <div className="post">
-        <h3>
+      <div className="post" onClick={this.handleShow}>
+        <h4>
           {this.state.book.title}
-        </h3>
-        <p>{this.state.book.description}</p>
-
-        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-          Detail
-        </Button>
+        </h4>
+        <p className="italic-text">{this.state.book.description}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{this.state.book.title}</Modal.Title>
+          <Modal.Header>
+            <Modal.Title>{this.state.book.title} - <span className="italic-text">{this.state.book.contributor}</span></Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>{this.state.book.description}</h4>
-            <p>${this.state.book.price}</p>
-            <p>{this.state.book.contributor}</p>
-            <p>{this.state.book.publisher}</p>
+            {this.handleShowDescription()}
+            <p className="book-price">${this.state.book.price}</p>
+            <p className="italic-text">Published by: {this.state.book.publisher}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>

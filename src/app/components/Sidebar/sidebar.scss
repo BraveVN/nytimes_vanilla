@@ -1,4 +1,17 @@
 .sidebar {
   list-style: none;
   text-align: left;
+  margin-top: 1.2em;
+  padding-left: 0;
+  li {
+    padding: 1em;
+    background-color: #f1f1f1;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    &:hover {
+      background-color: #eeeeee;
+      transition: all 0.1s;
+    }
+  }
 }
