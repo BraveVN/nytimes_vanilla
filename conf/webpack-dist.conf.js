@@ -66,7 +66,7 @@ module.exports = {
     vendor: Object.keys(pkg.dependencies)
   },
   node: {
-    fs: "empty"
-  },
-  target: "node"
+    fs: "empty",
+    net: "empty"
+  }
 };
