@@ -56,7 +56,7 @@ class Story extends React.Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header>
-            <Modal.Title>{this.state.story.title} - <span className="italic-text">by {this.state.story.byline}</span></Modal.Title>
+            <Modal.Title>{this.state.story.title} - <span className="italic-text">{this.state.story.byline}</span></Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <p className="italic-text">
