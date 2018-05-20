@@ -1,6 +1,6 @@
 var Book = require('./book');
 
-var fakeData = null;
+var book = null;
 
 describe('Book component', () => {
   beforeEach(() => {
@@ -8,10 +8,10 @@ describe('Book component', () => {
   });
 
   test('render the Book component', () => {
-    const wrapper = shallow(<Book book={fakeData.book}/>);
+    const wrapper = shallow(<Book book={book}/>);
     expect(wrapper.length).toBe(1);
 
-    var tree = renderer.create(<Book book={fakeData.book}/>).toJSON();
+    var tree = renderer.create(<Book book={book}/>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
@@ -20,7 +20,7 @@ describe('handle modal action', () => {
   var wrapper;
   beforeEach(() => {
     initFakeData();
-    wrapper = shallow(<Book book={fakeData.book}/>);
+    wrapper = shallow(<Book book={book}/>);
   });
 
   test('on close event', () => {
@@ -38,7 +38,7 @@ describe('get publish date', () => {
   var wrapper;
   beforeEach(() => {
     initFakeData();
-    wrapper = shallow(<Book book={fakeData.book}/>);
+    wrapper = shallow(<Book book={book}/>);
   });
 
   test('should return correct date string in local format', () => {
@@ -56,27 +56,25 @@ describe('show description', () => {
   var wrapper;
   beforeEach(() => {
     initFakeData();
-    wrapper = shallow(<Book book={fakeData.book}/>);
+    wrapper = shallow(<Book book={book}/>);
   });
 
   test('should return correct description', () => {
-    expect(wrapper.instance().handleShowDescription()).toEqual(<h4>{fakeData.book.description}</h4>);
+    expect(wrapper.instance().handleShowDescription()).toEqual(<h4>{book.description}</h4>);
   });
 
   test('should return No description', () => {
-    fakeData.book.description = null;
+    book.description = null;
     expect(wrapper.instance().handleShowDescription()).toEqual(<h4><i>No description</i></h4>);
   });
 });
 
 function initFakeData() {
-  fakeData = {
-    book: {
-      title: 'Lorem ipsum dolor sit amet',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id luctus neque.',
-      contributor: 'Brave Pham',
-      price: 60,
-      publisher: 'Sony Entertainment'
-    }
-  };
+  book = {
+    title: 'Lorem ipsum dolor sit amet',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id luctus neque.',
+    contributor: 'Brave Pham',
+    price: 60,
+    publisher: 'Sony Entertainment'
+  }
 }
