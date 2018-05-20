@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopStories component render the TopStories component 1`] = `
+<div
+  className="category-container"
+>
+  <h2
+    className="title"
+  >
+    Top Stories
+  </h2>
+  <div
+    className="category-content"
+  />
+</div>
+`;
