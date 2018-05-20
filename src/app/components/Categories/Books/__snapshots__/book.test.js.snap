@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book component render the Book component 1`] = `
+<div
+  className="post"
+  onClick={[Function]}
+>
+  <h4>
+    Lorem ipsum dolor sit amet
+  </h4>
+  <p
+    className="italic-text"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id luctus neque.
+  </p>
+</div>
+`;

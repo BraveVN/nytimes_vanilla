@@ -26,11 +26,7 @@ class Book extends React.Component {
 
   getPublicDate(dateString) {
     var date = new Date(dateString);
-    return date.toDateString();
-  }
-
-  getMediaUrl(url) {
-    return common.domain + url;
+    return date.toLocaleDateString();
   }
 
   handleClose() {

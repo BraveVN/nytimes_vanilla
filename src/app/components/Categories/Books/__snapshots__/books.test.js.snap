@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books component render the Books component 1`] = `
+<div
+  className="category-container"
+>
+  <h2
+    className="title"
+  >
+    Books
+  </h2>
+  <div
+    className="category-content"
+  />
+</div>
+`;
