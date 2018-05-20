@@ -29,10 +29,6 @@ class Review extends React.Component {
     return date.toLocaleDateString();
   }
 
-  getMediaUrl(url) {
-    return common.domain + url;
-  }
-
   handleClose() {
     this.setState({show: false});
   }

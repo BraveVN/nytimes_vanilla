@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Review component render the Review component 1`] = `
+<div
+  className="post"
+  onClick={[Function]}
+>
+  <h4>
+    Lorem ipsum dolor sit amet
+  </h4>
+  <p
+    className="date"
+  >
+    Published: 
+    2018-5-20
+  </p>
+</div>
+`;
