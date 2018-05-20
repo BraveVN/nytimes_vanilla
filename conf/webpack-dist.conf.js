@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [/(node_modules|axios.js)/],
         loader: 'eslint-loader',
         enforce: 'pre'
       },
