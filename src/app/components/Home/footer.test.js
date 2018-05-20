@@ -13,5 +13,6 @@ describe('Footer', function () {
     var footer = TestUtils.renderIntoDocument(<Footer/>);
     var footerNode = ReactDOM.findDOMNode(footer);
     expect(footerNode.tagName).toEqual('FOOTER');
+    expect(footerNode.innerHTML).toEqual('Hello World!');
   });
 });
