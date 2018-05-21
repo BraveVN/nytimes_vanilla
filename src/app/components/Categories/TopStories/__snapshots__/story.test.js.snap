@@ -8,6 +8,13 @@ exports[`Story component render the Story component 1`] = `
   <h4>
     Lorem ipsum dolor sit amet
   </h4>
+  <div
+    className="media"
+  >
+    <img
+      src="https://www.example.com/example.jpg"
+    />
+  </div>
   <p
     className="date"
   >

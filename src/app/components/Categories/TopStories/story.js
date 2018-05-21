@@ -78,6 +78,7 @@ class Story extends React.Component {
         <h4>
           {this.state.story.title}
         </h4>
+        <div className="media">{this.getMediaUrl()}</div>
         <p className="date">Published: {this.getDate(this.state.story.published_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>

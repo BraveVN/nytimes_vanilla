@@ -30,12 +30,12 @@ class Home extends React.Component {
           <Title/>
           <Grid fluid={this.state.isFluid}>
             <Row>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={8}>
                 <Articles/>
+                <MovieReviews/>
                 <Books/>
               </Col>
-              <Col xs={12} md={6}>
-                <MovieReviews/>
+              <Col xs={12} md={4}>
                 <TopStories/>
               </Col>
             </Row>

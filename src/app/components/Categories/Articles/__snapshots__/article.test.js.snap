@@ -8,6 +8,13 @@ exports[`Article component render the Article component 1`] = `
   <h4>
     Nulla magna massa, porttitor in lacinia eget, imperdiet nec neque.
   </h4>
+  <div
+    className="media"
+  >
+    <img
+      src="https://www.nytimes.com/image/example.jpg"
+    />
+  </div>
   <p
     className="date"
   >

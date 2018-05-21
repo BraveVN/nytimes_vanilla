@@ -78,6 +78,7 @@ class Article extends React.Component {
         <h4>
           {this.state.article.headline.main}
         </h4>
+        <div className="media">{this.getMediaUrl()}</div>
         <p className="date">Published: {this.getPublicDate(this.state.article.pub_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>

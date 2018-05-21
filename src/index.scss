@@ -64,13 +64,17 @@ footer {
       }
       .date {
         font-style: italic;
-        position: absolute;
-        bottom: 0.5em;
+        margin-top: 1em;
       }
       button {
         position: absolute;
         right: 1em;
         bottom: 1em;
+      }
+      .media {
+        img {
+          width: 100%;
+        }
       }
     }
   }

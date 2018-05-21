@@ -61,6 +61,7 @@ class Review extends React.Component {
         <h4>
           {this.state.review.headline}
         </h4>
+        <div className="media"><img src={this.state.review.multimedia.src}/></div>
         <p className="date">Published: {this.getDate(this.state.review.publication_date)}</p>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
@@ -75,7 +76,7 @@ class Review extends React.Component {
             <p className="italic-text">
               Read it on <a href={this.state.review.link.url} target="_blank" rel="noopener noreferrer">The New York Times</a>
             </p>
-            <img src={this.state.review.multimedia.src}/>
+            <div className="media"><img src={this.state.review.multimedia.src}/></div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
