@@ -3,7 +3,7 @@ require('./article.scss');
 var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
-var common = require('../../../services/common');
+var AppConstant = require('../../../constants/appConstants');
 
 /**
  * Render a single element of Article in Articles list
@@ -50,7 +50,7 @@ class Article extends React.Component {
     for (let i = 0; i < this.state.article.multimedia.length; i++) {
       const media = this.state.article.multimedia[i];
       if (media.subtype === 'xlarge') {
-        return <img src={common.domain + media.url}/>;
+        return <img src={AppConstant.DOMAIN + media.url}/>;
       }
     }
     return <i>No media</i>;

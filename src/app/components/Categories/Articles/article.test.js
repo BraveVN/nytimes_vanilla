@@ -82,7 +82,7 @@ describe('get media url', () => {
    * Expect to return an element that illustrate the valid image
    */
   test('should return correct media element', () => {
-    expect(wrapper.instance().getMediaUrl()).toEqual(<img src={common.domain + article.multimedia[0].url}/>);
+    expect(wrapper.instance().getMediaUrl()).toEqual(<img src={AppConstants.DOMAIN + article.multimedia[0].url}/>);
   })
 });
 

@@ -13,7 +13,7 @@ var render = enzyme.render;
 var shallow = enzyme.shallow;
 var configure = enzyme.configure;
 var Adapter = require('enzyme-adapter-react-15');
-var common = require('../services/common');
+var AppConstants = require('../constants/appConstants');
 
 configure({
   adapter: new Adapter()
@@ -25,5 +25,5 @@ global.faker = faker;
 global.mount = mount;
 global.render = render;
 global.shallow = shallow;
-global.common = common;
+global.AppConstants = AppConstants;
 global.renderer = renderer;
