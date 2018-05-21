@@ -4,6 +4,9 @@ var Book = require('./book');
 var booksActions = require('../../../actions/booksActions');
 var booksStore = require('../../../stores/booksStore');
 
+/**
+ * A component that render a list of all Books
+ */
 class Books extends React.Component {
   constructor(props) {
     super(props);
@@ -15,18 +18,31 @@ class Books extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * Add an event listener with a callback
+   * method before component is invoked
+   */
   componentWillMount() {
     booksStore.addChangeListener(this.onChange);
   }
 
+  /**
+   * Get Books data from API when component is mounted
+   */
   componentDidMount() {
     booksActions.receiveBooks();
   }
 
+  /**
+   * Remove event listener after component is unmounted
+   */
   componentWillUnmount() {
     booksStore.removeChangeListener(this.onChange);
   }
 
+  /**
+   * Callback method to change articles' value
+   */
   onChange() {
     this.setState({
       books: booksStore.getBooks()

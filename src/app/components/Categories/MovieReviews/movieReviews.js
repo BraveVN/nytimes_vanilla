@@ -4,6 +4,9 @@ var Review = require('./review');
 var movieReviewsActions = require('../../../actions/movieReviewsActions');
 var movieReviewsStore = require('../../../stores/movieReviewsStore');
 
+/**
+ * A component that render a list of all MovieReviews
+ */
 class MovieReviews extends React.Component {
   constructor(props) {
     super(props);
@@ -15,18 +18,31 @@ class MovieReviews extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * Add an event listener with a callback
+   * method before component is invoked
+   */
   componentWillMount() {
     movieReviewsStore.addChangeListener(this.onChange);
   }
 
+  /**
+   * Get Movie Reviews data from API when component is mounted
+   */
   componentDidMount() {
     movieReviewsActions.receiveReviews();
   }
 
+  /**
+   * Remove event listener after component is unmounted
+   */
   componentWillUnmount() {
     movieReviewsStore.removeChangeListener(this.onChange);
   }
 
+  /**
+   * Callback method to change reviews' value
+   */
   onChange() {
     this.setState({
       reviews: movieReviewsStore.getReviews()

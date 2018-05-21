@@ -11,6 +11,9 @@ var Books = require('../Categories/Books/books');
 var MovieReviews = require('../Categories/MovieReviews/movieReviews');
 var TopStories = require('../Categories/TopStories/topStories');
 
+/**
+ * Render the Home page with child component
+ */
 class Home extends React.Component {
   constructor(props) {
     super(props);

@@ -8,8 +8,15 @@ var TestUtils = require('react-addons-test-utils');
 
 var Footer = require('./footer');
 
+/**
+ * Test of Footer component
+ */
 describe('Footer', function () {
-  it('should be a footer', function () {
+  /**
+   * Expect the component to return enough
+   * element of footer
+   */
+  test('should be a footer', function () {
     var footer = TestUtils.renderIntoDocument(<Footer/>);
     var footerNode = ReactDOM.findDOMNode(footer);
     expect(footerNode.tagName).toEqual('FOOTER');

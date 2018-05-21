@@ -4,6 +4,10 @@ var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
 
+/**
+ * Render a Story component that contain
+ * all information about a story
+ */
 class Story extends React.Component {
   constructor(props) {
     super(props);
@@ -19,15 +23,29 @@ class Story extends React.Component {
 
   static get propTypes() {
     return {
+      /** This component require data in a story object from parent component */
       story: React.PropTypes.object.isRequired
     };
   }
 
+  /**
+   * Return a readable date from input
+   *
+   * @param {string} dateString
+   *
+   * Ex: 2018-05-21T13:28:41.003Z => 5/21/2018
+   */
   getDate(dateString) {
     var date = new Date(dateString);
     return date.toLocaleDateString();
   }
 
+  /**
+   * Return a JSX element that contain correct url to
+   * media file if the type of media matchs the condition
+   * or return a short desription to show that there's no
+   * media.
+   */
   getMediaUrl() {
     for (let i = 0; i < this.state.story.multimedia.length; i++) {
       const media = this.state.story.multimedia[i];
@@ -38,10 +56,18 @@ class Story extends React.Component {
     return <i>No media</i>;
   }
 
+  /**
+   * Handle Close action on modal.
+   * Set `show` to false so it'll hide the modal
+   */
   handleClose() {
     this.setState({show: false});
   }
 
+  /**
+   * Return a JSX element that contain book's
+   * description when it's available
+   */
   handleShow() {
     this.setState({show: true});
   }

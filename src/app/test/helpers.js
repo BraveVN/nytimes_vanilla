@@ -1,3 +1,9 @@
+/**
+ * Helper methods that used for testing
+ * This helper will be called when we run
+ * test & add the required module to global object
+ * so we can use it globally.
+ */
 var React = require('react');
 var faker = require('faker');
 var enzyme = require('enzyme');

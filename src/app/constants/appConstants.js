@@ -1,3 +1,7 @@
+/**
+ * This module contain all constants to be
+ * used commonly along the whole app
+ */
 var AppConstants = {
   CHANGE_EVENT: 'CHANGE_EVENT',
   RECEIVE_ARTICLES: 'RECEIVE_ARTICLES',

@@ -4,6 +4,9 @@ var Story = require('./story');
 var topStoriesActions = require('../../../actions/topStoriesActions');
 var topStoriesStore = require('../../../stores/topStoriesStore');
 
+/**
+ * A component that render a list of all Story
+ */
 class TopStories extends React.Component {
   constructor(props) {
     super(props);
@@ -15,18 +18,31 @@ class TopStories extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * Add an event listener with a callback
+   * method before component is invoked
+   */
   componentWillMount() {
     topStoriesStore.addChangeListener(this.onChange);
   }
 
+  /**
+   * Get Stories data from API when component is mounted
+   */
   componentDidMount() {
     topStoriesActions.receiveStories();
   }
 
+  /**
+   * Remove event listener after component is unmounted
+   */
   componentWillUnmount() {
     topStoriesStore.removeChangeListener(this.onChange);
   }
 
+  /**
+   * Callback method to change topStories' value
+   */
   onChange() {
     this.setState({
       topStories: topStoriesStore.getStories()

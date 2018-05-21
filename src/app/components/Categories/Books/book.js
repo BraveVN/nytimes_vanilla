@@ -4,6 +4,10 @@ var ReactBootstrap = require('react-bootstrap');
 var Button = ReactBootstrap.Button;
 var Modal = ReactBootstrap.Modal;
 
+/**
+ * Render a Book component that contain
+ * all information about a book
+ */
 class Book extends React.Component {
   constructor(props) {
     super(props);
@@ -19,23 +23,43 @@ class Book extends React.Component {
 
   static get propTypes() {
     return {
+      /** This component require data in a book object from parent component */
       book: React.PropTypes.object.isRequired
     };
   }
 
+  /**
+   * Return a readable date from input
+   *
+   * @param {string} dateString
+   *
+   * Ex: 2018-05-21T13:28:41.003Z => 5/21/2018
+   */
   getPublicDate(dateString) {
     var date = new Date(dateString);
     return date.toLocaleDateString();
   }
 
+  /**
+   * Handle Close action on modal.
+   * Set `show` to false so it'll hide the modal
+   */
   handleClose() {
     this.setState({show: false});
   }
 
+  /**
+   * Handle Show action on modal
+   * Set `show` to true so it'll display the modal
+   */
   handleShow() {
     this.setState({show: true});
   }
 
+  /**
+   * Return a JSX element that contain book's
+   * description when it's available
+   */
   handleShowDescription() {
     if (this.state.book.description) {
       return <h4>{this.state.book.description}</h4>;

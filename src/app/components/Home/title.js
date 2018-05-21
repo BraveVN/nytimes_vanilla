@@ -1,6 +1,10 @@
 require('./title.scss');
 var React = require('react');
 
+/**
+ * Illustrate the title section on home page
+ * (or Hero section in other words)
+ */
 class Title extends React.Component {
   render() {
     return (
