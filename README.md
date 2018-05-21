@@ -4,7 +4,8 @@ Heroku: [![Build Status](https://travis-ci.org/BraveVN/nytimes_react.svg?branch=
 
 Code Climate: [![Maintainability](https://api.codeclimate.com/v1/badges/c857590b6d4b7e2a97f5/maintainability)](https://codeclimate.com/github/BraveVN/nytimes_react/maintainability)
 
-# React app for testing with NYTimes's APIs
+## NYTimes React 2018
+This simple project is what I built when learning `ReactJS`. Data is fetched from [The New York Times' APIs](https://developer.nytimes.com/). The app is using `Flux` architect, styled by `Bootstrap`, including tests by `Jest` & `Enzyme`, also has `Travis` continuous integration & `Heroku` auto-deployment.
 
 ## Get it run on your local machine
 1. Install `NodeJS` & `NPM` (Recommend Node v8.11.1 & npm v5.6.0)
